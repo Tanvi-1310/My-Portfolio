@@ -49,6 +49,7 @@ node_modules/
 # Development, Audit & Scratch
 scratch/
 screenshots/
+.vercel/
 
 # IDE & Editor Temporary Files
 .vscode/
