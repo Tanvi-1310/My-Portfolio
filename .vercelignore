@@ -1,0 +1,20 @@
+# Development, Audit & Scratch
+scratch/
+screenshots/
+
+# Databases & Instance
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# Python & Caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
