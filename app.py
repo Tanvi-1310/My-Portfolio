@@ -55,6 +55,29 @@ else:
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+# Vercel Serverless WSGI Middleware: resolves original route paths from __path__ rewrite parameter
+class VercelPathMiddleware:
+    """WSGI middleware ensuring proper PATH_INFO routing under Vercel serverless rewrites."""
+    def __init__(self, wsgi_app):
+        self.wsgi_app = wsgi_app
+
+    def __call__(self, environ, start_response):
+        qs = environ.get("QUERY_STRING", "")
+        if "__path__=" in qs:
+            from urllib.parse import parse_qs, urlencode
+            params = parse_qs(qs, keep_blank_values=True)
+            if "__path__" in params:
+                raw_path = params.pop("__path__")[0]
+                real_path = "/" + raw_path.lstrip("/")
+                environ["PATH_INFO"] = real_path
+                environ["QUERY_STRING"] = urlencode(params, doseq=True)
+        elif environ.get("PATH_INFO", "").startswith("/api/index"):
+            environ["PATH_INFO"] = "/"
+
+        return self.wsgi_app(environ, start_response)
+
+app.wsgi_app = VercelPathMiddleware(app.wsgi_app)
+
 # Database Instance
 db = SQLAlchemy(app)
 
@@ -234,8 +257,6 @@ def inject_global_template_vars():
 # ==============================================================================
 
 @app.route("/")
-@app.route("/api/index.py")
-@app.route("/api/index.py/")
 def home():
     """Renders the main single-page portfolio with all sections."""
     return render_template(
