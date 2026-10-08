@@ -1,0 +1,3 @@
+# Place your real resume PDF here named: resume.pdf
+# Path: static/assets/resume.pdf
+# Once added, the /resume route will automatically stream the PDF instead of the placeholder.

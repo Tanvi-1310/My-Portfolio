@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="100%" height="100%">
+  <defs>
+    <!-- Polar Glacial Ambient Gradient -->
+    <linearGradient id="cr-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f6fa"/>
+      <stop offset="50%" stop-color="#e4edf5"/>
+      <stop offset="100%" stop-color="#d6e4f0"/>
+    </linearGradient>
+    <linearGradient id="cr-accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <filter id="cr-card-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f2b48" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="640" height="360" fill="url(#cr-bg)"/>
+
+  <!-- Subtle Polar Coordinate Grid -->
+  <g opacity="0.2">
+    <circle cx="210" cy="180" r="140" fill="none" stroke="#2563eb" stroke-dasharray="3,5" stroke-width="1"/>
+    <circle cx="210" cy="180" r="90" fill="none" stroke="#2563eb" stroke-dasharray="3,5" stroke-width="1"/>
+    <circle cx="210" cy="180" r="40" fill="none" stroke="#2563eb" stroke-dasharray="3,5" stroke-width="1"/>
+    <line x1="70" y1="180" x2="350" y2="180" stroke="#2563eb" stroke-width="1"/>
+    <line x1="210" y1="40" x2="210" y2="320" stroke="#2563eb" stroke-width="1"/>
+  </g>
+
+  <!-- Left Panel: Expedition Route & Traverse Map -->
+  <g transform="translate(48, 28)" filter="url(#cr-card-shadow)">
+    <!-- Base Map Panel -->
+    <rect width="324" height="304" rx="12" fill="#ffffff" stroke="#c9dceb" stroke-width="1.5"/>
+
+    <!-- Map Header -->
+    <g transform="translate(20, 20)">
+      <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="700" fill="#0f2942">Traverse Route Planning</text>
+      <text x="0" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#52799c">Inland Ridge Corridor • Polar Sector 04</text>
+
+      <rect x="208" y="2" width="76" height="22" rx="11" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <circle cx="219" cy="13" r="3.5" fill="#2563eb"/>
+      <text x="250" y="16.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#1d4ed8" text-anchor="middle">Active Transit</text>
+    </g>
+
+    <line x1="20" y1="58" x2="304" y2="58" stroke="#e1ecf4" stroke-width="1"/>
+
+    <!-- Topographic Contour Lines -->
+    <g opacity="0.35" stroke="#3b82f6" stroke-width="1.2" fill="none">
+      <path d="M 30 110 Q 90 90, 160 120 T 290 100"/>
+      <path d="M 25 160 Q 80 140, 150 170 T 300 150"/>
+      <path d="M 35 220 Q 110 190, 180 230 T 295 210"/>
+    </g>
+
+    <!-- Route Line -->
+    <path d="M 50 230 L 110 170 L 190 185 L 260 115" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 190 185 L 235 220" fill="none" stroke="#94a3b8" stroke-dasharray="4,4" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Waypoint Nodes -->
+    <!-- Base Alpha -->
+    <g transform="translate(50, 230)">
+      <circle cx="0" cy="0" r="6" fill="#2563eb"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#2563eb" stroke-opacity="0.3" stroke-width="2"/>
+      <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" font-weight="700" fill="#0f2942" text-anchor="middle">Base Alpha</text>
+    </g>
+
+    <!-- Depot 01 -->
+    <g transform="translate(110, 170)">
+      <circle cx="0" cy="0" r="4.5" fill="#0284c7"/>
+      <text x="0" y="-10" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="7.5" font-weight="600" fill="#334155" text-anchor="middle">Fuel Depot</text>
+    </g>
+
+    <!-- Active Convoy Position -->
+    <g transform="translate(190, 185)">
+      <circle cx="0" cy="0" r="7" fill="#10b981"/>
+      <circle cx="0" cy="0" r="12" fill="none" stroke="#10b981" stroke-opacity="0.35" stroke-width="2"/>
+      <!-- Vehicle icon / marker -->
+      <polygon points="-3,-3 3,0 -3,3" fill="#ffffff"/>
+      <text x="0" y="22" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" font-weight="700" fill="#047857" text-anchor="middle">Convoy 02 (Current)</text>
+    </g>
+
+    <!-- Waypoint Delta -->
+    <g transform="translate(260, 115)">
+      <circle cx="0" cy="0" r="5" fill="#e11d48"/>
+      <circle cx="0" cy="0" r="9" fill="none" stroke="#e11d48" stroke-opacity="0.3" stroke-width="2"/>
+      <text x="0" y="-10" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="7.5" font-weight="700" fill="#be123c" text-anchor="middle">Station Ridge</text>
+    </g>
+
+    <!-- Sector Legend -->
+    <g transform="translate(24, 260)">
+      <circle cx="6" cy="6" r="3.5" fill="#2563eb"/>
+      <text x="16" y="9.5" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" fill="#475569">Main Corridor</text>
+
+      <circle cx="86" cy="6" r="3.5" fill="#10b981"/>
+      <text x="96" y="9.5" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" fill="#475569">Asset Position</text>
+
+      <circle cx="166" cy="6" r="3.5" fill="#94a3b8"/>
+      <text x="176" y="9.5" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" fill="#475569">Alternate Spur</text>
+    </g>
+  </g>
+
+  <!-- Right Panel: Logistics Manifest & Field Resources -->
+  <g transform="translate(394, 28)" filter="url(#cr-card-shadow)">
+    <!-- Manifest Card -->
+    <rect width="198" height="304" rx="10" fill="#ffffff" stroke="#c9dceb" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <g transform="translate(16, 20)">
+      <rect x="0" y="0" width="166" height="36" rx="6" fill="#f0f7ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="12" y="16" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="800" fill="#1e3a8a">LOGISTICS MANIFEST</text>
+      <text x="12" y="28" font-family="'JetBrains Mono', monospace" font-size="8" fill="#2563eb">Mission: Inland Traverse</text>
+    </g>
+
+    <!-- Manifest Items -->
+    <g transform="translate(16, 72)">
+      <!-- Item 1: Traverse Unit -->
+      <g transform="translate(0, 0)">
+        <text x="0" y="12" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="700" fill="#0f172a">Snowcat Convoy</text>
+        <rect x="116" y="2" width="50" height="14" rx="4" fill="#ecfdf5"/>
+        <text x="141" y="12" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#059669" text-anchor="middle">En Route</text>
+        <text x="0" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" fill="#64748b">Primary haulage • Lead vehicle</text>
+      </g>
+      <line x1="0" y1="34" x2="166" y2="34" stroke="#f1f5f9" stroke-width="1"/>
+
+      <!-- Item 2: Shelter Hub -->
+      <g transform="translate(0, 42)">
+        <text x="0" y="12" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="700" fill="#0f172a">Thermal Shelters</text>
+        <rect x="116" y="2" width="50" height="14" rx="4" fill="#f0f9ff"/>
+        <text x="141" y="12" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#0284c7" text-anchor="middle">Deployed</text>
+        <text x="0" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" fill="#64748b">Ridge base station pods</text>
+      </g>
+      <line x1="0" y1="34" x2="166" y2="34" stroke="#f1f5f9" stroke-width="1"/>
+
+      <!-- Item 3: Fuel Reserve -->
+      <g transform="translate(0, 84)">
+        <text x="0" y="12" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="700" fill="#0f172a">Supply Caches</text>
+        <rect x="116" y="2" width="50" height="14" rx="4" fill="#f0f9ff"/>
+        <text x="141" y="12" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#0284c7" text-anchor="middle">Stocked</text>
+        <text x="0" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" fill="#64748b">Glacier waypoint depot</text>
+      </g>
+      <line x1="0" y1="34" x2="166" y2="34" stroke="#f1f5f9" stroke-width="1"/>
+
+      <!-- Item 4: Comms Relay -->
+      <g transform="translate(0, 126)">
+        <text x="0" y="12" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="700" fill="#0f172a">Satellite Uplink</text>
+        <rect x="116" y="2" width="50" height="14" rx="4" fill="#ecfdf5"/>
+        <text x="141" y="12" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" fill="#059669" text-anchor="middle">Online</text>
+        <text x="0" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" fill="#64748b">Low-latency comms relay</text>
+      </g>
+    </g>
+
+    <!-- Route Status Banner -->
+    <g transform="translate(16, 246)">
+      <rect width="166" height="42" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+      <circle cx="16" cy="21" r="4.5" fill="#2563eb"/>
+      <text x="28" y="18" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8.5" font-weight="700" fill="#1e293b">Route Corridor Status</text>
+      <text x="28" y="30" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="7.5" fill="#64748b">Clear traverse to Ridge Station</text>
+    </g>
+  </g>
+</svg>

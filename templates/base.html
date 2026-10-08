@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Tanvi Patil | Frontend Developer &amp; AI Enthusiast{% endblock %}</title>
+    
+    <!-- Meta Descriptions & SEO -->
+    <meta name="description" content="Personal developer portfolio of Tanvi Patil — Information Technology Engineering Student, Frontend Developer, UI/UX Enthusiast, and AI Enthusiast building practical digital solutions.">
+    <meta name="author" content="Tanvi Patil">
+    <meta name="keywords" content="Tanvi Patil, Portfolio, IT Engineering, Frontend Developer, UI/UX, AI, Python, Flask, React">
+    
+    <!-- Open Graph Social Metadata -->
+    <meta property="og:title" content="Tanvi Patil | Frontend Developer &amp; AI Enthusiast">
+    <meta property="og:description" content="I build practical digital products, explore AI-powered solutions, and turn ideas into useful applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Tanvi-1310/My-Portfolio">
+    
+    <!-- Inline SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237353ba'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-size='54' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="alternate icon" href="{{ url_for('favicon') }}">
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Immediate Theme Initialization to Prevent FOUC -->
+    <script>
+        (function() {
+            try {
+                var urlParams = new URLSearchParams(window.location.search);
+                var themeParam = urlParams.get('theme');
+                if (themeParam === 'dark' || themeParam === 'light') {
+                    document.documentElement.setAttribute('data-theme', themeParam);
+                    return;
+                }
+                var savedTheme = localStorage.getItem('tanvi-portfolio-theme');
+                if (savedTheme) {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <a href="{{ url_for('home') }}#home" class="brand-logo" aria-label="Tanvi Patil Home">
+                <span class="brand-text">Tanvi<span class="brand-dot">.</span></span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item"><a href="{{ url_for('home') }}#home" class="nav-link active" data-nav="home">Home</a></li>
+                    <li class="nav-item"><a href="{{ url_for('home') }}#about" class="nav-link" data-nav="about">About</a></li>
+                    <li class="nav-item"><a href="{{ url_for('home') }}#skills" class="nav-link" data-nav="skills">Skills</a></li>
+                    <li class="nav-item"><a href="{{ url_for('home') }}#projects" class="nav-link" data-nav="projects">Projects</a></li>
+                    <li class="nav-item"><a href="{{ url_for('home') }}#certifications" class="nav-link" data-nav="certifications">Certifications</a></li>
+                    <li class="nav-item"><a href="{{ url_for('home') }}#contact" class="nav-link" data-nav="contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Navigation Controls: Theme Toggle & Mobile Hamburger -->
+            <div class="nav-controls">
+                <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark color mode" title="Switch color theme">
+                    <span class="theme-icon light-icon" aria-hidden="true">
+                        <!-- Sun Icon (shown in light mode to switch to dark) -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </span>
+                    <span class="theme-icon dark-icon" aria-hidden="true">
+                        <!-- Moon Icon (shown in dark mode to switch to light) -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </button>
+
+                <button type="button" class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-info">
+                <div class="footer-brand">Tanvi<span class="brand-dot">.</span></div>
+                <p class="footer-tagline">Frontend Developer • UI/UX Enthusiast • AI Enthusiast</p>
+            </div>
+
+            <div class="footer-links-group">
+                <a href="{{ profile.github_url }}" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub ↗</a>
+                <a href="{{ url_for('resume') }}" class="footer-link">Resume</a>
+                <a href="{{ url_for('home') }}#contact" class="footer-link">Contact</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <p class="copyright-text">&copy; {{ current_year }} Tanvi Patil. All rights reserved.</p>
+                <button type="button" class="back-to-top" id="back-to-top" aria-label="Scroll back to top">Back to top ↑</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
