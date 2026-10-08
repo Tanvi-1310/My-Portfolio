@@ -361,6 +361,7 @@ def favicon():
 @app.errorhandler(404)
 def page_not_found(e):
     """Custom 404 error page matching portfolio aesthetics."""
+    print(f"DEBUG 404 PATH: {request.path} | HEADERS: {dict(request.headers)}")
     return render_template(
         "404.html",
         profile=PORTFOLIO_DATA["profile"]
